@@ -1,0 +1,17 @@
+{
+  "name": "Reply Pal — English replies for calls",
+  "short_name": "Reply Pal",
+  "description": "Hear the caller, get a short English reply you can read out loud.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#10141c",
+  "theme_color": "#10141c",
+  "lang": "en",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
