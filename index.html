@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#10141c">
+<title>Reply Pal — say this in English</title>
+<meta name="description" content="Hear the caller, get a short English reply you can read out loud. Works offline, no account.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="bar">
+  <div class="brand">
+    <span class="logo" aria-hidden="true"></span>
+    <h1>Reply Pal</h1>
+  </div>
+  <div class="status" id="status">
+    <span class="dot" id="status-dot"></span>
+    <span id="status-text">Ready</span>
+  </div>
+</header>
+
+<main>
+  <div class="modes" role="group" aria-label="Choose what you are doing">
+    <button class="mode" type="button" data-mode="interview">Job interview</button>
+    <button class="mode" type="button" data-mode="call">Client call</button>
+  </div>
+
+  <div class="notice" id="no-mic" hidden>
+    <b>This browser has no built-in microphone recognition.</b>
+    On Android, open in Chrome. You can still type what the caller says.
+  </div>
+
+  <div class="notice" id="offline-note" hidden>
+    Microphone blocked. Open Chrome site settings, allow the mic, then press Listen again.
+  </div>
+
+  <section class="card">
+    <button class="btn btn-listen" id="btn-listen" type="button">
+      <span class="mic" aria-hidden="true"></span>
+      <span>Listen to caller</span>
+    </button>
+    <p class="hint">Press once, then let the caller talk. Press again to pause. Space bar also works.</p>
+    <details class="call-hint">
+      <summary>WhatsApp, Viber or a video call? How to set it up</summary>
+      <p>Answer it on another device with the speaker on, and keep this device near the speaker. One phone cannot let two apps share the microphone. Or just type what you heard &mdash; the replies still work.</p>
+      <p>Plug earphones into <i>this</i> device to hear the spoken reply privately. The interviewer never hears the app, and the app cannot hear its own voice.</p>
+    </details>
+    <label class="transcript-label" id="transcript-label" for="transcript">What you heard</label>
+    <textarea id="transcript" rows="3" spellcheck="false" autocomplete="off"
+      placeholder="Typed here or from the microphone. Edit it if the words look wrong."></textarea>
+    <div class="row">
+      <button class="btn btn-ghost" id="btn-clear" type="button">Clear</button>
+    </div>
+  </section>
+
+  <section class="replies" aria-label="Suggested replies" aria-live="polite">
+    <h2 class="section-title">Say this</h2>
+    <div id="replies-list" class="replies-list"></div>
+  </section>
+
+  <section class="card" aria-label="Everyday lines">
+    <h2 class="section-title">Everyday lines</h2>
+    <p class="section-sub">Used on almost every call. Tap to hear them.</p>
+    <div id="essentials-list" class="chips"></div>
+  </section>
+
+  <section class="card" id="saved-wrap" aria-label="Your saved lines" hidden>
+    <h2 class="section-title">Your lines</h2>
+    <p class="section-sub">Lines you starred. Saved on this phone only.</p>
+    <div id="saved-list" class="chips"></div>
+  </section>
+  <section class="card" aria-label="My details">
+    <h2 class="section-title">My details</h2>
+    <p class="section-sub">Fill this once. Your answers use it automatically, so you read a finished sentence instead of a blank.</p>
+    <p class="profile-note" id="profile-note">Interview answers will show blanks like <mark class="slot">[years]</mark> until you fill these in.</p>
+    <div id="profile-fields" class="profile-grid"></div>
+    <p class="profile-count">Filled: <span id="profile-count"></span></p>
+  </section>
+</main>
+
+<footer class="bar bar-foot">
+  <label class="speed">
+    <input type="checkbox" id="slow">
+    <span>Speak slowly</span>
+  </label>
+  <span class="foot-note">Nothing leaves your phone.</span>
+</footer>
+
+<script src="phrasebook.js"></script>
+<script src="interview-phrases.js"></script>
+<script src="matcher.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
